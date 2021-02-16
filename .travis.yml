@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+    
+before_install:
+    - docker build -t liliarum/docker-react -f Dockerfile.dev .
+    
+script:
+    - docker run liliarum/docker-react npm run test -- --coverage
